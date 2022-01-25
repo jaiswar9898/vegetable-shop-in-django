@@ -200,6 +200,7 @@ class CheckoutView(View):
 
 def payment_complete(request):
     body = json.loads(request.body)
+    print('BODY:', body)
     order = Order.objects.get(
         user=request.user, ordered=False, id=body['orderID'])
     payment = Payment(
